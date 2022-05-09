@@ -6,7 +6,7 @@ function redirectAPI() {
 }
 
 function redirectDownload() {
-    location.replace("https://github.com/csc309-winter-2022/js-library-loedmun3")
+    location.replace("https://github.com/edmund-lo/Swish.js")
 }
 
 // x coordinates must have value between 0-50 for half court (0-50 for full court)

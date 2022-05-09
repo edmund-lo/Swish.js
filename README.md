@@ -1,5 +1,3 @@
-# js-library-loedmun3
-
 # Swish.js
 
 ## Landing Page:

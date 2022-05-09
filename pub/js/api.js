@@ -6,5 +6,5 @@ function redirectExamples() {
 }
 
 function redirectDownload() {
-    location.replace("https://github.com/csc309-winter-2022/js-library-loedmun3")
+    location.replace("https://github.com/edmund-lo/Swish.js")
 }
