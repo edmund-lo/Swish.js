@@ -1,7 +1,7 @@
 # Swish.js
 
 ## Landing Page:
-https://sleepy-refuge-18198.herokuapp.com
+https://swishjs.herokuapp.com/
 
 ## Getting Started:
 Load Swish.js into your webpage by adding the following to the head of your HTML file:
@@ -47,4 +47,4 @@ s1.createPopup();
 ```
 
 ## Documentation:
- https://sleepy-refuge-18198.herokuapp.com/api.html
+https://swishjs.herokuapp.com/api.html
