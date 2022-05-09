@@ -2,7 +2,7 @@
 const log = console.log
 
 function redirectExamples() {
-    location.replace("https://sleepy-refuge-18198.herokuapp.com")
+    location.replace("https://swishjs.herokuapp.com/")
 }
 
 function redirectDownload() {
