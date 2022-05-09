@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>Swish.js</title>
+
+    <link rel="stylesheet" type="text/css" href="css/swish.css">
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script defer type="text/javascript" src='js/leader-line.min.js'></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/styles/default.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+    
+    <script defer type="text/javascript" src='js/swish.js'></script>
+    <script defer type="text/javascript" src='js/index.js'></script>
+
+ </head>
+ <body>
+
+   <div id="swishBanner">
+      <strong id="swishHeader">Swish.js</strong>
+
+      <br></br>
+
+      <strong id="swishDescription">Create interactive basketball shot charts and simulation tools with this small javascript library</strong>
+      
+      <br></br>
+
+      <div>
+         <button class="redirectButton" onclick="redirectAPI()"><strong>API</strong></button>
+         <button class="redirectButton" onclick="redirectDownload()"><strong>Download</strong></button>
+      </div>
+   </div>
+
+   <div id="examples">
+      <div id="examplesHeader"><strong>Examples</strong></div>
+
+      <div class="example">
+         <div class="examplesHeaderText"><strong>Basic halfcourt shot charts</strong></div>
+
+         <div class="textContainer">
+            <div class="examplesText">
+               <p>Plot basketball actions on a basketball halfcourt.</p>
+               <p>Set the desired width and choose "half" for a halfcourt.
+                  Pass in data containing the type of the action, and the x and y coordinates.</p>
+               <p>Action types have unique colours and can include: make, miss, pass, dribble, rebound, steal, block, turnover, and foul. New types will be given a random colour.</p>
+               <p>The size of each action will be scaled to be proportional to the set width of the court.</p>
+            </div>
+   
+            <br></br>
+            JS
+            <pre><code class="javascript">const s1 = swish();
+s1.drawCourt(1, 600, "half", "example1Court");
+s1.drawActions(data1);
+            </code></pre>
+   
+            HTML
+            <pre><code><&zwj;div id="example1Court"><&zwj;/div>
+            </code></pre>
+         </div>
+   
+         <div class="examplesContainer">
+            <div id="example1Court"></div>
+         </div>
+
+         <br clear="all" />
+      </div>
+
+      <div class="example">
+         <div class="examplesHeaderText"><strong>Fullcourt shot charts with teams</strong></div>
+
+         <div class="textContainer">
+            <div class="examplesText">
+               <p>Plot basketball actions on a basketball fullcourt with two different teams.</p>
+               <p>Set the desired width and choose "full" for a fullcourt.
+                  Pass in data containing the type of the action, the x and y coordinates, and the teams.</p>
+               <p>The two different teams will have different shapes.</p>
+            </div>
+   
+            <br></br>
+            JS
+            <pre><code class="javascript">const s2 = swish();
+s2.drawCourt(2, 400, "full", "example2Court");
+s2.drawActions(data2);
+            </code></pre>
+   
+            HTML
+            <pre><code><&zwj;div id="example2Court"><&zwj;/div>
+            </code></pre>
+         </div>
+   
+         <div class="examplesContainer">
+            <div id="example2Court"></div>
+         </div>
+
+         <br clear="all" />
+      </div>
+
+      <div class="example">
+         <div class="examplesHeaderText"><strong>Create popups for each action</strong></div>
+
+         <div class="textContainer">
+            <div class="examplesText">
+               <p>Create popups to display the team, player, and action type for each action.</p>
+               <p>Pass in data containing the type of the action, the x and y coordinates, teams, and players.</p>
+               <p>Hover over each action on the court to see the popup. Hover over the base of the arrows to see their popups.</p>
+            </div>
+   
+            <br></br>
+            JS
+            <pre><code class="javascript">const s3 = swish();
+s3.drawCourt(3, 400, "full", "example3Court");
+s3.drawActions(data3);
+s3.createPopup();
+            </code></pre>
+   
+            HTML
+            <pre><code><&zwj;div id="example3Court"><&zwj;/div>
+            </code></pre>
+         </div>
+   
+         <div class="examplesContainer">
+            <div id="example3Court"></div>
+         </div>
+
+         <br clear="all" />
+      </div>
+
+      <div class="example">
+         <div class="examplesHeaderText"><strong>Create a slider to show and hide actions</strong></div>
+
+         <div class="textContainer">
+            <div class="examplesText">
+               <p>Create a slider to show and hide each action over time.</p>
+               <p>Pass in data containing the type of the action, the x and y coordinates, teams, players, periods, and times.</p>
+               <p>Drag the slider to show and hide actions. The current action is highlighted with a blue outline.</p>
+            </div>
+   
+            <br></br>
+            JS
+            <pre><code class="javascript">const s4 = swish();
+s4.drawCourt(4, 600, "half", "example4Court");
+s4.drawActions(data4);
+s4.createSlider("example4Court");
+            </code></pre>
+   
+            HTML
+            <pre><code><&zwj;div id="example4Court"><&zwj;/div>
+            </code></pre>
+         </div>
+   
+         <div class="examplesContainer">
+            <div id="example4Court"></div>
+         </div>
+         
+         <br clear="all" />
+      </div>
+
+      <div class="example">
+         <div class="examplesHeaderText"><strong>Create a timeline</strong></div>
+
+         <div class="textContainer">
+            <div class="examplesText">
+               <p>Create a timeline to show the times and descriptions of each action.</p>
+               <p>Set the desired width and height of the timeline. Pass in data containing the type of the action, the x and y coordinates, teams, players, periods, times, and descriptions.</p>
+               <p>Drag the slider to show and hide actions and update the timeline. The timeline contains the period, time and description of the action. The current action is also highlighted in the timeline.</p>
+            </div>
+   
+            <br></br>
+            JS
+            <pre><code class="javascript">const s5 = swish();
+s5.drawCourt(5, 400, "full", "example5Court");
+s5.drawActions(data5);
+s5.createSlider("example5Court");
+s5.createTimeline(200, 400, "example5Timeline");
+            </code></pre>
+   
+            HTML
+            <pre><code><&zwj;div id="example5Court"><&zwj;/div>
+<&zwj;div id="example5Timeline"><&zwj;/div>
+            </code></pre>
+         </div>
+   
+         <div class="examplesContainer">
+            <div id="example5Court"></div>
+            <div id="example5Timeline"></div>
+         </div>
+         
+         <br clear="all" />
+      </div>
+
+      <div class="example">
+         <div class="examplesHeaderText"><strong>Customize colours and shapes</strong></div>
+
+         <div class="textContainer">
+            <div class="examplesText">
+               <p>Change the colours for action types and shapes for teams.</p>
+            </div>
+   
+            <br></br>
+            JS
+            <pre><code class="javascript">const s6 = swish();
+s6.drawCourt(6, 600, "half", "example6Court");
+s6.drawActions(data6);
+s6.setColour("rebound", "blue");
+s6.setShape("team1", "square");
+s6.setShape("team2", "circle");
+s6.createPopup();
+            </code></pre>
+   
+            HTML
+            <pre><code><&zwj;div id="example6Court"><&zwj;/div>
+            </code></pre>
+         </div>
+
+         <div class="examplesContainer">
+            <div id="example6Court"></div>
+         </div>
+         
+         <br clear="all" />
+      </div>
+   </div>
+
+   <div id="footer"><strong>Swish.js created by Edmund Lo</strong></div>
+
+ </body>
+
+</html>

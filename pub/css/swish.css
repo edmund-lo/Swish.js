@@ -1,0 +1,177 @@
+.container {
+    position: relative;
+    padding: 0px;
+    margin: 0px;
+}
+
+.court {
+    border:1px solid black;
+}
+
+#actionContainer {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    padding: 0px;
+    margin: 0px;
+}
+
+.action {
+    position: absolute;
+    padding: 0px;
+    margin: 0px;
+}
+
+.make {
+    background-color: rgb(13, 161, 13);
+}
+
+.miss {
+    background-color: rgb(238, 13, 13);
+}
+
+.rebound {
+    background-color: rgb(247, 172, 33);
+}
+
+.steal {
+    background-color: rgb(109, 193, 245);
+}
+
+.block {
+    background-color: rgb(201, 57, 201);
+}
+
+.turnover {
+    background-color: rgb(131, 57, 201);
+}
+
+.foul {
+    background-color: rgb(57, 91, 201);
+}
+
+.pass {
+    border: 0px;
+    background-color: transparent;
+}
+
+.dribble {
+    border: 0px;
+    background-color: transparent;
+}
+
+.circle {
+    border: 1px solid black;
+    border-radius: 50%;
+}
+
+.square {
+    border: 1px solid black;
+    border-radius: 0%;
+}
+
+.sliderContainer {
+    margin: 0px;
+}
+
+.slider {
+    -webkit-appearance: none;
+    border-radius: 5px;
+    background: #acacac;
+    outline: none;
+    opacity: 0.5;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+  
+.slider:hover {
+    opacity: 1;
+}
+  
+.slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #0868c2;
+    cursor: pointer;
+}
+
+.value {
+    text-align: center;
+    font-size: 16px;
+}
+
+.timelineContainer {
+    overflow: auto;
+    border: 2px solid black;
+    border-radius: 10px;
+    margin: 0px;
+}
+
+.timelineHeader {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 8px;
+    margin-right: 8px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid black;
+    font-size: 22px;
+}
+
+.time {
+    margin-top: 10px;
+    margin-left: 8px;
+    margin-right: 8px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+}
+
+.description {
+    margin-left: 8px;
+    margin-right: 8px;
+    margin-top: -20px;
+    padding-left: 4px;
+    padding-right: 4px;
+    padding-bottom: 4px;
+    border-bottom: 1px solid black;
+}
+
+.popup {
+    position: absolute;
+}
+
+.popup .popuptext {
+    visibility: hidden;
+    width: 140px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    position: absolute;
+    z-index: 1;
+    bottom: 180%;
+    left: 50%;
+    margin-left: -70px;
+}
+
+.popup:hover .popuptext {
+    visibility: visible;
+}
+
+.popup .popuptext::after {
+    content: " ";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: black transparent transparent transparent;
+  }

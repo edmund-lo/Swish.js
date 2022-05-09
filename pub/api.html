@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+ <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+    <title>API | Swish.js</title>
+
+    <link rel="stylesheet" type="text/css" href="css/swish.css">
+    <link rel="stylesheet" type="text/css" href="css/api.css">
+
+    <script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script defer type="text/javascript" src='js/leader-line.min.js'></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/styles/default.min.css">
+    <script src="https://cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.5.1/build/highlight.min.js"></script>
+    <script>hljs.highlightAll();</script>
+
+    <script defer type="text/javascript" src='js/swish.js'></script>
+    <script defer type="text/javascript" src='js/api.js'></script>
+
+ </head>
+ <body>
+   <div id="swishBanner">
+      <strong id="swishHeader">Swish.js</strong>
+
+      <br></br>
+
+      <strong id="swishDescription">Create interactive basketball shot charts and simulation tools with this small javascript library</strong>
+      
+      <br></br>
+
+      <div>
+         <button class="redirectButton" onclick="redirectExamples()"><strong>Examples</strong></button>
+         <button class="redirectButton" onclick="redirectDownload()"><strong>Download</strong></button>
+      </div>
+   </div>
+
+   <div id="api">
+      <div id="apiHeader"><strong>API | Documentation</strong></div>
+
+      <div class="section">
+         <div class="sectionHeaderText"><strong>Getting Started</strong></div>
+
+         <div class="textContainer">
+            <div class="sectionText">
+               <p>Load Swish.js into your webpage by adding the following to the head of your HTML file:</p>
+               <ul>
+                  <li>swish.css containing styles for the library</li>
+                  <li>jQuery from the Google CDN</li>
+                  <li>leader-line.min.js for an external library, <a href="https://anseki.github.io/leader-line/">LeaderLine</a></li>
+                  <li>swish.js</li>
+               </ul>
+               <p>Note: LeaderLine is used to create the arrows in the visualizations</p>
+            </div>
+
+            <br></br>
+            HTML
+            <pre><code><&zwj;link rel="stylesheet" type="text/css" href="css/swish.css">
+            
+<&zwj;script defer src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"><&zwj;/script>
+<&zwj;script defer type="text/javascript" src='js/leader-line.min.js'><&zwj;/script>
+<&zwj;script defer type="text/javascript" src='js/swish.js'><&zwj;/script>
+            </code></pre>
+         </div>
+      </div>
+
+      <div class="section">
+         <div class="sectionHeaderText"><strong>How to Use</strong></div>
+
+         <div class="textContainer">
+            <div class="sectionText">
+               <p>Create <&zwj;div> elements for the court and the timeline and set their ids</p>
+               <p>Create a swish object and use its functions</p>
+            </div>
+
+            <br></br>
+            HTML
+            <pre><code><&zwj;!-- Create <&zwj;div> elements and set ids -->
+<&zwj;div id="example1Court"><&zwj;/div>
+<&zwj;div id="example1Timeline"><&zwj;/div>
+            </code></pre>
+
+            JS
+            <pre><code class="javascript">// Create a swish object
+const s1 = swish();
+// Draw a court and place it in the element with id "example1Court"
+s1.drawCourt(1, 400, "full", "example1Court");
+// Draw the actions in "data1"
+s1.drawActions(data1);
+// Create a slider and place it in the element with id "example1Court"
+s1.createSlider("example1Court");
+// Create a timeline and place it in the element with id "example1Timeline"
+s1.createTimeline(200, 400, "example1Timeline");
+// Create a popup for each action
+s1.createPopup();
+            </code></pre>
+         </div>
+      </div>
+
+      <div class="section">
+         <div class="sectionHeaderText"><strong>Data</strong></div>
+
+         <div class="textContainer">
+            <div class="sectionText">
+               <p>The data passed into function drawActions()</p>
+               <p>Required data:</p>
+               <ul>
+                  <li><strong>type:</strong> The action types including make, miss, pass, dribble, rebound, steal, block, turnover, and foul. Also accepts new types</li>
+                  <li><strong>x:</strong> The x coordinate of the action which must have a value between 0-50 for a half or full court</li>
+                  <li><strong>y:</strong> The y coordinate of the action which must have a value between 0-47 for a half court and 0-94 for full court</li>
+               </ul>
+               <p>Optional data:</p>
+               <ul>
+                  <li><strong>x2:</strong> The end x coordinate of the actions with type "pass" or "dribble". Required data if type is "pass" or "dribble"</li>
+                  <li><strong>y2:</strong> The end y coordinate of the actions with type "pass" or "dribble". Required data if type is "pass" or "dribble"</li>
+                  <li><strong>player:</strong> The player that performed the action</li>
+                  <li><strong>team:</strong> The team of the player that performed the action. The data can contain maximum of 2 teams</li>
+                  <li><strong>period:</strong> The period/quarter of the basketball game</li>
+                  <li><strong>time:</strong> The time left in the period/quarter of the basketball game</li>
+                  <li><strong>description:</strong> The description of the action</li>
+               </ul>
+            </div>
+
+            <br></br>
+            JS
+            <pre><code class="javascript">const data = [
+   {
+      type: "pass",
+      x: 25,
+      y: 10,
+      x2: 30,
+      y2: 15,
+      player: "player1",
+      team: "team1",
+      period: "1st",
+      time: "10:00",
+      description: "player1 passes to player2",
+   },
+            </code></pre>
+         </div>
+      </div>
+
+      <div class="section">
+         <div class="sectionHeaderText"><strong>Create a swish object</strong></div>
+
+         <div class="textContainer">
+            <div class="sectionText">
+               <p>Create a swish object to use its functions.</p>
+            </div>
+            JS
+            <pre><code class="javascript">const s = swish();
+            </code></pre>
+         </div>
+      </div>
+
+      <div class="section">
+         <div class="sectionHeaderText"><strong>Functions</strong></div>
+
+         <div class="functionContainer">
+            <div class="functionHeader">.drawCourt(courtID, width, courtType, divID)</div>
+            <div class="sectionText">
+               <p>Draws a court and places it in a <&zwj;div> element with the id, "divID". 
+                  A new "courtID" is required for each court. 
+                  The court will have a width of "width". 
+                  The court will be a halfcourt if courtType equals "half" and a fullcourt if courtType equals "full".</p>
+            </div>
+         </div>
+
+         <div class="functionContainer">
+            <div class="functionHeader">.drawActions(data)</div>
+            <div class="sectionText">
+               <p>Draws the actions in "data". Data requirements can be found above.</p>
+               <ul>
+                  <li>Scales the size and position of the actions before plotting on the court</li>
+                  <li>Default colours for each of the predefined action types and generates a random colour for new types</li>
+                  <li>Default circle shape to show actions</li>
+                  <li>Default solid arrows to show actions of type "pass" or "dribble"</li>
+                  <li>If there are teams in the data, circles and solid arrows will be assigned to the first team in the data, 
+                     and squares and dashed arrows will be assigned to the second team in the data</li>
+               </ul>
+            </div>
+         </div>
+
+         <div class="functionContainer">
+            <div class="functionHeader">.createSlider(divID)</div>
+            <div class="sectionText">
+               <p>Creates an interactive slider and places it in a <&zwj;div> element with the id, "divID".</p>
+               <p>Drag the slider to hide or show the different actions in the order that they are in the data. 
+                  The slider will have a minimum of 0 to hide all the actions on the court and a maximum of the length of the data to show all of the actions on the court.</p>
+               <p>The current action will also be highlighted in light blue.</p>
+            </div>
+         </div>
+         
+         <div class="functionContainer">
+            <div class="functionHeader">.createTimeline(width, height, divID)</div>
+            <div class="sectionText">
+               <p>Creates a timeline and places it in a <&zwj;div> element with the id, "divID". The timeline will have width of "width" and height of "height".</p>
+               <p>The timeline will display the period/quarter, the time, and the description of each action in the data.</p>
+               <p>If a slider was previously created, dragging the slider will also update the timeline with the current action. 
+                  The details for the current action in the timeline will also be highlighted in light blue.</p>
+            </div>
+         </div>
+
+         <div class="functionContainer">
+            <div class="functionHeader">.createPopup()</div>
+            <div class="sectionText">
+               <p>Creates a popup for each action. The popup displays when the user hovers over the action.</p>
+               <p>The popup will display the player that performed the action, their team, and the type of the action.</p>
+               <p>If there is no data on the team or player, the popup will only display the type of the action.</p>
+            </div>
+         </div>
+
+         <div class="functionContainer">
+            <div class="functionHeader">.setColour(type, colour)</div>
+            <div class="sectionText">
+               <p>Sets the action of type, "type", to a new colour.</p>
+            </div>
+         </div>
+
+         <div class="functionContainer">
+            <div class="functionHeader">.setShape(team, shape)</div>
+            <div class="sectionText">
+               <p>Sets the team, "team", to a new shape. Shapes can be "circle" or "square".</p>
+            </div>
+         </div>
+
+      </div>
+
+   </div>
+
+   <div id="footer"><strong>Swish.js created by Edmund Lo</strong></div>
+ </body>
+
+</html>
